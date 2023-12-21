@@ -10,16 +10,16 @@ const setWeatherDescription = (description) => {
 const getBackgroundImage = () => {
   switch (weatherDescription.value) {
     case 'Drizzle':
-    case 'snow':
+    case 'Snow':
       return 'url("./src/assets/backgrounds/snow_day.jpg")';
-    case 'clear':
+    case 'Clear':
       return 'url("./src/assets/backgrounds/sky_clear_day.jpg")';
-    case 'rain':
+    case 'Rain':
       return 'url("./src/assets/backgrounds/rain_day.jpg")';
-    case 'mist':
+    case 'Mist':
       return 'url("./src/assets/backgrounds/mist_day.jpg")';
     case 'few clouds':
-    case 'clouds':
+    case 'Clouds':
       return 'url("./src/assets/backgrounds/few_clouds_day.jpg")';
     case 'broken clouds':
       return 'url("./src/assets/backgrounds/broken_clouds_day.jpg")';
@@ -30,8 +30,8 @@ const getBackgroundImage = () => {
     case 'thunderstorm':
       return 'url("./src/assets/backgrounds/thunderstorm_day.jpg")';
     default:
-      return 'url("./src/assets/backgrounds/sky_clear_night.jpg")'; 
+      return 'url("./src/assets/backgrounds/sky_clear_night.jpg")';
   }
 };
 
-export default { setWeatherDescription, getBackgroundImage };
+export default { setWeatherDescription, getBackgroundImage, weatherDescription };

@@ -6,7 +6,6 @@ const forecast = ref(null);
 
 const fetchForecast = async () => {
     forecast.value = await ForecastsStore.getForecast();
-    console.log(forecast?.value);
 };
 
 const formatHour = (dateTimeString) => {

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, watch, onMounted } from 'vue';
 import WeatherBackgroundStore from '@/stores/WeatherBackgroundStore.js';
 import LocationStore from '@/stores/geoLocation.js';
 import CurrentStore from '@/stores/currentStore.js';
@@ -28,6 +28,10 @@ onMounted(() => {
   fetchForecast();
 });
 
+watch(coords, async () => {
+  await fetchCurrent();
+  WeatherBackgroundStore.setWeatherDescription(current.value.temps);
+});
 </script>
 
 <template>
