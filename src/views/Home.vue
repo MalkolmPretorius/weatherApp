@@ -9,13 +9,13 @@ import DailyWeather from "@/components/DailyWeather.vue";
     <current-weather />
     <hourly-weather />
     <daily-weather />
-    <div class="fixed inset-x-0 bottom-0 pb-4 flex justify-center">
-      <button
-        class="bg-blue-500 hover:bg-blue-700 text-white h-16 w-16 leading-8 rounded-full shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out text-4xl"
-      >
-        <router-link :to="{ name: 'favoris' }">+</router-link>
-      </button>
-    </div>
+  </div>
+  <div class="fixed inset-x-5 bottom-0 pb-4 flex justify-end">
+    <button
+      class="bg-blue-500 bg-opacity-90 hover:bg-blue-700 text-white p-4 h-auto w-auto leading-8 rounded-full shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out text-2xl"
+    >
+      <router-link :to="{ name: 'favoris' }"><span class="hidden md:block">Add favorite</span> <span class="block md:hidden">+</span></router-link>
+    </button>
+    
   </div>
 </template>
-

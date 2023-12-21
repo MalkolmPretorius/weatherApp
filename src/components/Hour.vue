@@ -23,14 +23,13 @@ fetchForecast();
 </script>
 
 <template>
-  <div class="overflow-x-auto">
+  <div class="overflow-x-auto pb-4">
     <div class="flex space-x-8">
       <!-- Blocs de prévisions horaires ici -->
       <div class="text-center" v-for="hourlyForecast in forecast?.forecastList">
         <p class="text-lg">{{ formatHour(hourlyForecast.dt_txt) }}</p>
         <img class="weather-icon" :src="`https://openweathermap.org/img/wn/${hourlyForecast.weather[0].icon}@2x.png`" alt="weather_icon">
-        <p class="text-lg">{{hourlyForecast.main.temp }}°C</p>
-      </div>
+        <p class="text-lg">{{ hourlyForecast.main.temp ? hourlyForecast.main.temp.toFixed(0) : '' }}°C</p>      </div>
     </div>
   </div>
 </template>
@@ -40,5 +39,6 @@ fetchForecast();
   width: 60px; 
   height: 60px; 
   background-color: lightblue;
-  border-radius: 50%;}
+  border-radius: 50%;
+  opacity: 80%;}
 </style>

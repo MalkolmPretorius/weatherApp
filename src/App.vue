@@ -1,52 +1,46 @@
 <script setup>
-import { ref } from "vue";
-import LocationStore from "@/stores/geoLocation.js";
+import { ref, onMounted } from 'vue';
+import WeatherBackgroundStore from '@/stores/WeatherBackgroundStore.js';
+import LocationStore from '@/stores/geoLocation.js';
 import CurrentStore from '@/stores/currentStore.js';
-import  ForecastsStore  from "@/stores/forecastsStore";
+import ForecastsStore from '@/stores/forecastsStore';
 
 const coords = ref(null);
 const current = ref(null);
 const forecast = ref(null);
 
 const fetchCoords = async () => {
-  try {
-    coords.value = await LocationStore.getCoords();
-    console.log(coords.value);
-  } catch (err) {
-    console.error(err.message);
-  }
+  coords.value = await LocationStore.getCoords();
 };
 
 const fetchCurrent = async () => {
-    current.value = await CurrentStore.getCurrent();
-    console.log(current.value);
+  current.value = await CurrentStore.getCurrent();
+  WeatherBackgroundStore.setWeatherDescription(current.value?.temps);
 };
 
 const fetchForecast = async () => {
-    forecast.value = await ForecastsStore.getForecast();
-    console.log(forecast.value.forecastList);
+  forecast.value = await ForecastsStore.getForecast();
 };
 
-fetchCoords();
-fetchCurrent();
-fetchForecast();
+onMounted(() => {
+  fetchCoords();
+  fetchCurrent();
+  fetchForecast();
+});
+
 </script>
 
 <template>
-  <div>
-  <router-view></router-view>
+  <div :style="{ backgroundImage: WeatherBackgroundStore.getBackgroundImage() }">
+    <router-view></router-view>
   </div>
 </template>
 
 <style scoped>
-div{
-  background-color: lightgrey;
-
-}
-ul {
-  display: flex;
-  justify-content: space-around;
-  background-color: #fffbf5;
+div {
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
 }
 li:hover {
   color: blue;

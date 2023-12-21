@@ -4,7 +4,7 @@ import GeoLocationStore from "@/stores/geoLocation.js";
 
 const coords = reactive({
     latitude: null,
-    longitude: null
+    longitude: null,
 });
 
 const fetchCoords = async () => {
@@ -12,6 +12,7 @@ const fetchCoords = async () => {
         const newCoords = await GeoLocationStore.getCoords();
         coords.latitude = newCoords.latitude;
         coords.longitude = newCoords.longitude;
+        
     } catch (err) {
         // Gérer l'erreur
         console.error(err.message);

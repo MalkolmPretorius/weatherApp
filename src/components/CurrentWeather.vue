@@ -41,26 +41,26 @@ var currentHourWithFormat = ref("");
 
 <template>
   <section
-    class="bg-white bg-opacity-75 rounded-lg shadow p-5 mb-6 grow flex flex-col"
+    class="bg-white bg-opacity-70 rounded-lg shadow p-5 mb-6 grow flex flex-col"
     style="flex-grow: 1"
   >
     <header class="mb-4">
-      <h2 class="font-bold text-xl">Météo Instantanée</h2>
+      <h2 class="font-bold text-2xl">Météo Instantanée</h2>
     </header>
     <article
       class="flex items-center justify-between grow"
       style="flex-grow: 1"
     >
       <div>
-        <h3 class="text-lg font-semibold">{{current?.Name}}</h3>
-        <time class="text-sm text-gray-600" datetime="10:00"
+        <h3 class="text-xl font-semibold">{{current?.Name}}</h3>
+        <time class="text-lg text-gray-600" datetime="10:00"
           >{{currentDateWithFormat}}<br>{{ currentHourWithFormat }}</time
         >
       </div>
       <div class="flex">
-        <div class="text-right">
-          <p class="text-5xl">{{current?.température}}°C</p>
-          <p class="text-lg text-gray-600">{{current?.temps}}</p>
+        <div class="text-right pr-2">
+          <p class="text-5xl">{{ current?.température ? current.température.toFixed(0) : '' }}°C</p>
+          <p class="text-xl text-gray-600">{{current?.temps}}</p>
         </div>
         <!-- Icône météo (à remplacer par une vraie image) -->
         <img v-if="current && current.icone" class="weather-icon" :src="`https://openweathermap.org/img/wn/${current.icone}@2x.png`" alt="weather">
@@ -72,5 +72,6 @@ var currentHourWithFormat = ref("");
 <style scoped>
 .weather-icon {
   background-color: lightblue;
-  border-radius: 50%;}
+  border-radius: 50%;
+  opacity: 80%;}
 </style>

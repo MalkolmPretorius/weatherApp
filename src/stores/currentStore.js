@@ -12,10 +12,11 @@ export const CurrentStore = reactive({
     const current = await response.json();
     return {
       Name: current.name,
-      temps: current.weather[0].description,
+      temps: current.weather[0].main,
       température: current.main.temp,
       icone:current.weather[0].icon,
     };
   },
+  
 });
 export default CurrentStore;

@@ -1,4 +1,4 @@
-import {reactive} from 'vue'
+import { reactive } from 'vue';
 
 function getCurrentPosition() {
    return new Promise((resolve, reject) => {
@@ -19,7 +19,11 @@ export const LocationStore = reactive({
                longitude: position.coords.longitude 
            };
        } catch (err) {
-           throw err;
+           console.error(err); 
+           return { 
+               latitude: 48.8566,  // Latitude de Paris
+               longitude: 2.3522   // Longitude de Paris
+           };
        }
    }
 });

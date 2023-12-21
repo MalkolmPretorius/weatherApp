@@ -12,7 +12,5 @@ import FavoritesList from "../components/FavoritesList.vue";
 </template>
 
 <style scoped>
-div{
-  background-color:#FFFBF5;
-}
+
 </style>
