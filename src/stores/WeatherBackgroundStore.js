@@ -18,16 +18,16 @@ const getBackgroundImage = () => {
       return 'url("./src/assets/backgrounds/rain_day.jpg")';
     case 'Mist':
       return 'url("./src/assets/backgrounds/mist_day.jpg")';
-    case 'few clouds':
+    case 'Few clouds':
     case 'Clouds':
       return 'url("./src/assets/backgrounds/few_clouds_day.jpg")';
-    case 'broken clouds':
+    case 'Broken clouds':
       return 'url("./src/assets/backgrounds/broken_clouds_day.jpg")';
-    case 'scattered clouds':
+    case 'Scattered clouds':
       return 'url("./src/assets/backgrounds/scattered_clouds_day.jpg")';
-    case 'shower rain':
+    case 'Shower rain':
       return 'url("./src/assets/backgrounds/shower_rain_day.jpg")';
-    case 'thunderstorm':
+    case 'Thunderstorm':
       return 'url("./src/assets/backgrounds/thunderstorm_day.jpg")';
     default:
       return 'url("./src/assets/backgrounds/sky_clear_night.jpg")';
