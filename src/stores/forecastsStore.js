@@ -7,7 +7,7 @@ export const ForecastsStore = reactive({
   getForecast: async function () {
     await CoordsStore.fetchCoords();
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?lat=${CoordsStore.coords.latitude}&lon=${CoordsStore.coords.longitude}&appid=${apiKey}&units=metric`
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${CoordsStore.coords.latitude}&lon=${CoordsStore.coords.longitude}&appid=${apiKey}&units=metric&cnt=14`
     );
     const forecast = await response.json();
     return {
